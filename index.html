@@ -1,75 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>¿Cuánto mide lo imposible?</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<header class="top">
-  <button id="homeBtn" class="btn ghost">🏠 Inicio</button>
-  <div class="prog" aria-live="polite"><span id="pText"></span><div class="bar"><i id="pBar"></i></div></div>
-  <div class="row">
-    <button id="newBtn" class="btn sec" hidden>👋 Nuevo visitante</button>
-    <button id="feriaBtn" class="btn ghost" aria-pressed="false">🖥️ Modo feria</button>
-  </div>
-</header>
-
-<main>
-  <!-- Portada -->
-  <section id="s-home" class="screen hero">
-    <h1>¿CUÁNTO MIDE LO IMPOSIBLE?</h1>
-    <p class="sub">Descubrí cómo la matemática nos permite medir alturas sin tocarlas.</p>
-    <svg id="homeArt" viewBox="0 0 580 230" role="img" aria-label="Un árbol, un edificio, una torre, un poste, una antena y una palmera de distintas alturas"></svg>
-    <p class="intro">¿Cómo podemos saber cuánto mide un objeto demasiado alto para medirlo con una cinta métrica? Usando la matemática, la observación y un poco de ingenio.</p>
-    <button id="startBtn" class="btn big">¡Comenzar desafío!</button>
-  </section>
-
-  <!-- Menú de desafíos -->
-  <section id="s-menu" class="screen" hidden>
-    <h2>Elegí tu desafío</h2>
-    <p>📐 Tangente: medimos un ángulo con el clinómetro. ☀️ Tales: comparamos sombras.</p>
-    <div id="grid" class="grid"></div>
-    <button id="resetBtn" class="btn ghost">Reiniciar mi progreso</button>
-  </section>
-
-  <!-- Desafío -->
-  <section id="s-play" class="screen" hidden>
-    <button id="backBtn" class="btn ghost">← Volver al menú</button>
-    <h2 id="pTitle"></h2>
-    <p id="pDesc"></p>
-    <div id="chips" class="chips"></div>
-    <div id="scene" class="scenebox"></div>
-
-    <div class="panel">
-      <label for="ans">Tu respuesta: ¿cuánto mide el objeto (H)?</label>
-      <div class="row">
-        <input id="ans" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 18,5">
-        <select id="unit" aria-label="Unidad"><option value="m">metros (m)</option><option value="cm">centímetros (cm)</option></select>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>¿Cuánto mide lo imposible?</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <button id="homeBtn" class="btn ghost">🏠 Inicio</button>
+      <div class="prog" aria-live="polite">
+        <span id="pText"></span>
+        <div class="bar"><i id="pBar"></i></div>
       </div>
-      <p id="err" class="err" role="alert"></p>
       <div class="row">
-        <button id="verBtn" class="btn big">Verificar respuesta</button>
-        <button id="hintBtn" class="btn sec">Mostrar una pista</button>
-        <button id="retryBtn" class="btn ghost">Volver a intentarlo</button>
+        <button id="newBtn" class="btn sec" hidden>👋 Nuevo visitante</button>
+        <button id="feriaBtn" class="btn ghost" aria-pressed="false">
+          🖥️ Modo feria
+        </button>
       </div>
-      <ul id="hints" class="hints"></ul>
-    </div>
+    </header>
 
-    <div id="res" hidden>
-      <div id="msg" class="msg" role="status"></div>
-      <h3>Resolución paso a paso</h3>
-      <ol id="steps"></ol>
-      <div class="row">
-        <button id="replayBtn" class="btn sec">▶ Repetir animación</button>
-        <button id="menuBtn" class="btn big">Elegir otro desafío</button>
-      </div>
-    </div>
-  </section>
-</main>
+    <main>
+      <!-- Portada -->
+      <section id="s-home" class="screen hero">
+        <h1>¿CUÁNTO MIDE LO IMPOSIBLE?</h1>
+        <p class="sub">
+          Descubrí cómo la matemática nos permite medir alturas sin tocarlas.
+        </p>
+        <svg
+          id="homeArt"
+          viewBox="0 0 580 230"
+          role="img"
+          aria-label="Un árbol, un edificio, una torre, un poste, una antena y una palmera de distintas alturas"
+        ></svg>
+        <p class="intro">
+          ¿Cómo podemos saber cuánto mide un objeto demasiado alto para medirlo
+          con una cinta métrica? Usando la matemática, la observación y un poco
+          de ingenio.
+        </p>
+        <button id="startBtn" class="btn big">¡Comenzar desafío!</button>
+      </section>
 
-<canvas id="cf" aria-hidden="true"></canvas>
-<script src="script.js"></script>
-</body>
+      <!-- Menú de desafíos -->
+      <section id="s-menu" class="screen" hidden>
+        <h2>Elegí tu desafío</h2>
+        <p>
+          📐 Tangente: medimos un ángulo con el clinómetro. ☀️ Tales: comparamos
+          sombras.
+        </p>
+        <div id="grid" class="grid"></div>
+        <button id="resetBtn" class="btn ghost">Reiniciar mi progreso</button>
+      </section>
+
+      <!-- Desafío -->
+      <section id="s-play" class="screen" hidden>
+        <button id="backBtn" class="btn ghost">← Volver al menú</button>
+        <h2 id="pTitle"></h2>
+        <p id="pDesc"></p>
+        <div id="chips" class="chips"></div>
+        <div id="scene" class="scenebox"></div>
+
+        <div class="panel">
+          <label for="ans">Tu respuesta: ¿cuánto mide el objeto (H)?</label>
+          <div class="row">
+            <input
+              id="ans"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="Ej.: 18,5"
+            />
+            <select id="unit" aria-label="Unidad">
+              <option value="m">metros (m)</option>
+              <option value="cm">centímetros (cm)</option>
+            </select>
+          </div>
+          <p id="err" class="err" role="alert"></p>
+          <div class="row">
+            <button id="verBtn" class="btn big">Verificar respuesta</button>
+            <button id="hintBtn" class="btn sec">Mostrar una pista</button>
+            <button id="retryBtn" class="btn ghost">Volver a intentarlo</button>
+          </div>
+          <ul id="hints" class="hints"></ul>
+        </div>
+
+        <div id="res" hidden>
+          <div id="msg" class="msg" role="status"></div>
+          <h3>Resolución paso a paso</h3>
+          <ol id="steps"></ol>
+          <div class="row">
+            <button id="menuBtn" class="btn big">Elegir otro desafío</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <canvas id="cf" aria-hidden="true"></canvas>
+    <script src="script.js"></script>
+  </body>
 </html>
