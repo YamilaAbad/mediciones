@@ -367,9 +367,9 @@ input {
 /* ===== Footer ===== */
 .footer {
   width: 100%;
+  margin-top: auto;
+  padding: 1.2rem 1rem;
   text-align: center;
-  padding: 1.5rem 1rem;
-  margin-top: 2rem;
   border-top: 1px solid var(--line);
   background: #ffffff80;
   color: var(--ink);
